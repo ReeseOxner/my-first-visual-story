@@ -3,13 +3,13 @@ slug: baker-example-page-template
 site_name: Baker Examples
 locale: en_US
 
-headline: This is not a headline. Lorem ipsum dolor sit amet consectetur adipisicing
+headline: Reese changed the fake headline.
 
 [byline]
-name: This is not a name
+name: Reese Oxner
 url: https://www.latimes.com/people/nobody
 
-name: This is not a name
+name: His mom
 url: https://www.latimes.com/people/nobody
 []
 
