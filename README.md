@@ -1,15 +1,20 @@
-# baker-example-page-template
+# Reese's baker-example-page-template
+
+Reese's version
+...
+
+original notes:
 
 A demonstration of how to build and publish pages with the [baker](https://github.com/datadesk/baker) build tool.
 
-The Los Angeles Times uses baker to create the static pages published at latimes.com/projects. The Times system relies on a private version of a repository much like this one. This simplified example publishes [staging](http://baker-example-page-template-staging.s3-website-us-east-1.amazonaws.com/baker-example-page-template/main/) and [production](http://baker-example-page-template-production.s3-website-us-east-1.amazonaws.com/baker-example-page-template/) versions to public buckets on Amazon S3. 
+The Los Angeles Times uses baker to create the static pages published at latimes.com/projects. The Times system relies on a private version of a repository much like this one. This simplified example publishes [staging](http://baker-example-page-template-staging.s3-website-us-east-1.amazonaws.com/baker-example-page-template/main/) and [production](http://baker-example-page-template-production.s3-website-us-east-1.amazonaws.com/baker-example-page-template/) versions to public buckets on Amazon S3.
 
 ## Features
 
 - 🔃 Live-updating local test server
 - 🖨️ HTML templating with [Nunjucks](https://mozilla.github.io/nunjucks/)
 - 🖌️ Extended CSS with [Sass](https://sass-lang.com/)
-- 🗞️ JavaScript bundling with [Rollup](https://www.rollupjs.org/guide/en/) and [Babel](https://babeljs.io/) 
+- 🗞️ JavaScript bundling with [Rollup](https://www.rollupjs.org/guide/en/) and [Babel](https://babeljs.io/)
 - 🔢 Data imports with [quaff](https://github.com/rdmurphy/quaff)
 - 🥞 Dynamic page generation based on structured inputs
 - 🏭 Automatic deployment of each branch to a staging environment on each `push` event via [GitHub Action](https://github.com/datadesk/baker-example-page-template/actions/workflows/deploy-stage.yml)
@@ -17,9 +22,9 @@ The Los Angeles Times uses baker to create the static pages published at latimes
 
 ## Requirements
 
-* [Node.js](https://nodejs.org/en/) version 12, 14 or 16, though at minimum 12.20, 14.14, or 16.0.
-* [Node Package Manager](https://www.w3schools.com/whatis/whatis_npm.asp)
-* [git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en/) version 12, 14 or 16, though at minimum 12.20, 14.14, or 16.0.
+- [Node Package Manager](https://www.w3schools.com/whatis/whatis_npm.asp)
+- [git](https://git-scm.com/)
 
 # Documentation
 
@@ -76,7 +81,7 @@ Now go to `localhost:3000` in your browser. You should see a boilerplate page re
 
 Here are the standard files and folders that you’ll find when you clone a new project from our page template. You’ll spend more time working with some files than others, but it’s good to have a general sense of what they all do.
 
-### _data
+### \_data
 
 The data folder contains relevant data for the project. We use this folder to store required information about every project — like what URL it should live at. You can also store a variety of other data types here, including `.aml`, `.csv`, and `.json`.
 
@@ -84,15 +89,15 @@ The data folder contains relevant data for the project. We use this folder to st
 
 The `meta.aml` file contains important information about the page such as the headline, byline, slug, publication date and other fields. Filling it out ensures that your page displays correctly and can be indexed by search engines. A full list of all the attributes can be found in our reference materials. You can expand this to include as many, or as little, options as you'd like.
 
-### _layouts
+### \_layouts
 
-This folder that stores our site’s base template and reusable code snippets. When you’re starting out, you’re unlikely to change anything here. In more advanced use cases, it’s where you can store code that is reused across multiple pages. 
+This folder that stores our site’s base template and reusable code snippets. When you’re starting out, you’re unlikely to change anything here. In more advanced use cases, it’s where you can store code that is reused across multiple pages.
 
 #### `base.html`
 
 The base.html file contains all the fundamental HTML found on every page we create. The example here is rudimentary by design. You'd likely want include a lot more in a real-world implementation.
 
-### _workspace
+### \_workspace
 
 The workspace is a place for you to put anything relevant to the project that doesn’t need to be published on the web. AI files, bits of code, writing, etc. It’s up to you.
 
@@ -118,7 +123,7 @@ The `baker.config.js` file is where we put options that Baker uses to serve and 
 
 The default template for your page. This is where you will lay out your page. It uses the Nujucks templating system to create HTML.
 
-### package.json,  package-lock.json
+### package.json, package-lock.json
 
 These files track the Node dependencies used in our projects. When you run `npm install` the libraries you add will be automatically tracked here for you.
 
@@ -156,7 +161,7 @@ A common need for anyone building a project in Baker is access to raw data withi
 
 If the data you’re accessing is already available at a URL you trust will stay live, this is easy. But what if it isn’t, and it is data you’ve prepared yourself?
 
-It’s possible to access records in your _data folder. The only caveat is the job of converting this file into a usable state is your responsibility. A good library for this is `d3-fetch`.
+It’s possible to access records in your \_data folder. The only caveat is the job of converting this file into a usable state is your responsibility. A good library for this is `d3-fetch`.
 
 To build the URL to this file in a way Baker understands, use this format:
 
@@ -215,7 +220,7 @@ export default {
 };
 ```
 
-That could be used to create URLs like `/baker-example-page-template/1775/` and `/baker-example-page-template/1780/]` with a single template. 
+That could be used to create URLs like `/baker-example-page-template/1775/` and `/baker-example-page-template/1780/]` with a single template.
 
 ## Deployment
 
@@ -227,19 +232,19 @@ First, you'll need to create two buckets in Amazon's S3 storage service. One is 
 
 The names of those buckets should then be stored as GitHub "secrets" accessible to the Actions that deploy the site. You should visit [your settings panel for your account or organization](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-organization). Start by adding these two secrets.
 
-|Name|Value|
-|:---|:----|
-|`BAKER_AWS_S3_STAGING_BUCKET`|The name of your staging bucket|
-|`BAKER_AWS_S3_STAGING_REGION`|The S3 region where your staging bucket was created|
-|`BAKER_AWS_S3_PRODUCTION_BUCKET`|The name of your production bucket|
-|`BAKER_AWS_S3_PRODUCTION_REGION`|The S3 region where your production bucket was created|
+| Name                             | Value                                                  |
+| :------------------------------- | :----------------------------------------------------- |
+| `BAKER_AWS_S3_STAGING_BUCKET`    | The name of your staging bucket                        |
+| `BAKER_AWS_S3_STAGING_REGION`    | The S3 region where your staging bucket was created    |
+| `BAKER_AWS_S3_PRODUCTION_BUCKET` | The name of your production bucket                     |
+| `BAKER_AWS_S3_PRODUCTION_REGION` | The S3 region where your production bucket was created |
 
 Next you should ensure that you have an key pair from AWS that has the ability to upload public files to your two buckets. The values should also be added to your secrets.
 
-|Name|Value|
-|:---|:----|
-|`BAKER_AWS_ACCESS_KEY_ID`|The AWS access key|
-|`BAKER_AWS_SECRET_ACCESS_KEY`|The AWS secret key|
+| Name                          | Value              |
+| :---------------------------- | :----------------- |
+| `BAKER_AWS_ACCESS_KEY_ID`     | The AWS access key |
+| `BAKER_AWS_SECRET_ACCESS_KEY` | The AWS secret key |
 
 ### Staging your work
 
@@ -337,7 +342,6 @@ The `DOMAIN` variable will always be the same as the `domain` option passed in `
 
 The `PATH_PREFIX` variable will always be the same as the `pathPrefix` option passed in `baker.config.js`, or a single forward slash (`/`) if one was not passed.
 
-
 ### `page.url`
 
 The project-relative URL to the current page. Will include the `pathPrefix` if one was provided in the `baker.config.js` file — in other words, it will account for any project pathing being done and point at the correct page in the project.
@@ -411,7 +415,6 @@ export default {
 
 ### Options
 
-
 #### assets
 
 default: `”assets”`
@@ -444,7 +447,7 @@ export default {
 
 default: `”_data”`
 
-The `data` option tells Baker which folder to treat as its data source. You likely will not need to change this. 
+The `data` option tells Baker which folder to treat as its data source. You likely will not need to change this.
 
 #### domain
 
@@ -486,9 +489,9 @@ export default {
       n = +n;
 
       return n * n;
-    }
+    },
   },
-}
+};
 ```
 
 ```jinja
@@ -509,7 +512,7 @@ export default {
   nunjucksTags: {
     doubler(n) {
       return `<p>${n} doubled is ${n * 2}</p>`;
-    }
+    },
   },
 };
 ```
