@@ -8,12 +8,14 @@
 {% script 'app' %}
 {% endblock scripts -%}
 
-{% block headline %}My headline will go here{% endblock headline %}
+{% block headline %}My headline will go here soon{% endblock headline %}
 {% block byline %}By Reese Oxner{% endblock byline%}
 {% block pubdate %}
   <time datetime="2022-03-05" pubdate>Mar. 5, 2022</time>
 {% endblock pubdate%}
 
 {% block content %}
-<p>hello world</p>
+{% for obj in harvard_park_homicides %}
+    {{ obj.first_name }} {{ obj.last_name }} <br>
+{% endfor %}
 {% endblock content %}
