@@ -65,3 +65,21 @@ p {
     color: white;
   }
 }
+
+div.graphics-container {
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 500px) {
+    display: block;
+  }
+  div.graphic {
+    flex: 0 1 48%;
+    @media (max-width: 500px) {
+      display: block;
+      margin-bottom: 15px;
+    }
+    iframe {
+      min-height: 350px;
+    }
+  }
+}
